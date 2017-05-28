@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Prototype</title>
+</head>
+<body></body>
+<script src="../index.js"></script>
+<script>
+	// 1
+	function Person(name) {
+		this.name = name;
+	}
+
+	Person.prototype.introduce = function() {
+		console.log(`I am ${this.name}`);
+	};
+
+	// 2
+	class Player extends Person {}
+	class Programmer extends Person {}
+
+    // 3
+	class NBAPlayer extends Player {}
+
+    // instantiate
+	var player = new NBAPlayer("nash");
+
+	console.log(protoTrace(player).map(function(c) {
+		return c.name
+	}));
+</script>
+</html>
